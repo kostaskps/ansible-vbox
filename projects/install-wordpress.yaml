@@ -1,0 +1,20 @@
+---
+- hosts: all
+  become: false
+
+  tasks:
+  - name: Clone Wordpress repo
+    ansible.builtin.git:
+      repo: https://github.com/kostaskps/wordpress-mariadb.git
+      dest: src/wordpress-mariadb
+      version: main
+
+  - name: Create and start services
+    become: true
+    community.docker.docker_compose:
+      project_src: src/wordpress-mariadb
+    register: output
+
+  - name: Show results
+    ansible.builtin.debug:
+      var: output
