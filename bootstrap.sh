@@ -22,7 +22,7 @@ echo -ne '\n' | sudo update-alternatives --config python3
 
 echo .
 echo "[TASK 5] Install Python3.11 utilities"
-apt install -y python3.11-distutils python3.11-venv python3-testresources
+apt install -y python3.11-distutils python3.11-venv python3-testresources python3-netaddr
 
 # Install pip3
 echo "[TASK 6] Install pip3"
